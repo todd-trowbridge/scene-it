@@ -1,3 +1,4 @@
+const parsedData = JSON.parse(localStorage.getItem("watchlist"));
 document.addEventListener("DOMContentLoaded", function () {
   // code here will execute after the document is loaded
   const searchForm = document.getElementById("search-form");
@@ -12,8 +13,8 @@ document.addEventListener("DOMContentLoaded", function () {
       .then((response) => response.json())
       .then((data) => {
         const renderMoviesData = renderMovies(data.Search);
-        console.log(movieData)
-        movieData = data.Search
+        console.log(movieData);
+        movieData = data.Search;
         moviesContainer.innerHTML = renderMoviesData;
         console.log(data);
       });
@@ -33,9 +34,6 @@ function saveToWatchList(movieID) {
   });
   let watchlistJSON = localStorage.getItem("watchlist");
   let watchlist = JSON.parse(watchlistJSON);
-  if (watchlist === null) {
-    watchlist = [];
-  }
   watchlist.push(movie);
   watchlistJSON = JSON.stringify(watchlist);
   localStorage.setItem("watchlist", watchlistJSON);
