@@ -1,4 +1,4 @@
-const parsedData = JSON.parse(localStorage.getItem("watchlist"))
+const parsedData = JSON.parse(localStorage.getItem("watchlist"));
 document.addEventListener("DOMContentLoaded", function () {
   // code here will execute after the document is loaded
   const moviesContainer = document.querySelector(".movies-container");
@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // code for document click listener goes here
     if (e.target.classList.contains("remove-button")) {
       const movieID = e.target.dataset.imdbid;
-      removeFromWatchlist(movieID)
+      removeFromWatchlist(movieID);
     }
   });
 });
@@ -30,12 +30,12 @@ function renderMovies(movieArray) {
 }
 
 function removeFromWatchlist(id) {
-  newList = []
+  newList = [];
   parsedData.filter(function (currentMovie) {
-    if (currentMovie.imdbID != id){
-      newList.push(currentMovie)
+    if (currentMovie.imdbID != id) {
+      newList.push(currentMovie);
     }
   });
-  localStorage.setItem("watchlist", JSON.stringify(newList))
-  location.reload()
+  localStorage.setItem("watchlist", JSON.stringify(newList));
+  location.reload();
 }
