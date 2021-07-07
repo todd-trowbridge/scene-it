@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log(searchString.value);
     const urlEncodedSearchString = encodeURIComponent(searchString.value);
     console.log(urlEncodedSearchString);
-    fetch("http://www.omdbapi.com/?apikey=59354c85&s=" + urlEncodedSearchString)
+    fetch("https://www.omdbapi.com/?apikey=59354c85&s=" + urlEncodedSearchString)
       .then((response) => response.json())
       .then((data) => {
         const renderMoviesData = renderMovies(data.Search);
